@@ -19,18 +19,21 @@ pub fn compound_data_types() {
     println!("My Mix Tuple: {:?}", my_mix_tuple);
 
     // Slices: [1,2,3,4,5] - Good for memory
-    let number_slices: &[i32] = &[1, 2, 3, 4, 5];
+    let number_slices: &[i32; 5] = &[1, 2, 3, 4, 5];
     println!("Number Slice: {:?}", number_slices);
 
-    let animal_slices: &[&str] = &["Lion", "Elephant", "Gorilla"];
+    let animal_slices: &[&str; 3] = &["Lion", "Elephant", "Gorilla"];
     println!("Animal Slice: {:?}", animal_slices);
 
-    let book_slices: &[&String] = &[
-        &"Harry Potter".to_string(),
-        &"Lord of the Rings".to_string(),
-        &"The Hobbit".to_string(),
+    let mut book_slices: [String; 3] = [
+        "Harry Potter".to_string(),
+        "Lord of the Rings".to_string(),
+        "The Hobbit".to_string(),
     ];
+
+    book_slices[2].push_str(" , By J.R.R. Tolkien");
     println!("Book Slice: {:?}", book_slices);
+    println!("Book Slice 3nd element: {}", book_slices[2]);
 
     // Strings VS String Slices (&str)
     // Strings [growable, mutable, owned] - Slow (Heap)
@@ -42,7 +45,7 @@ pub fn compound_data_types() {
 
     // B- &str (String Slice)
     let string: String = String::from("Hello,World!");
-    let slice: &str = &string[0..5];
+    let slice: &str = &string[0..5]; // [start..end)
     println!("Slice Value: {}", slice);
 
     print_slice(slice);

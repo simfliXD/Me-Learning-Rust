@@ -68,6 +68,7 @@ fn stuct_example(){
 	account.check_balance();
 }
 
+// structs are mutable by default
 struct BankAccount {
 	owner: String,
 	balance:f64,
