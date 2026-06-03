@@ -40,12 +40,14 @@ fn main() {
                 "You lose, because you reached max attempts {}",
                 MAX_ATTEMPTS
             );
+            println!("The secret number was {secret_number}!");
             break;
         }
 
         guessed_numbers.push(guess);
         guessed_numbers.sort();
 
+        // compare the secret number to the guess and print result.
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
