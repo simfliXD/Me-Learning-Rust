@@ -5,3 +5,13 @@ edition = "2024"
 
 [dependencies]
 rand ="0.8.6"
+
+[profile.release]
+opt-level = 3          # maximum optimization for speed
+debug = false          # no debug symbols in the binary
+lto = true             # link-time optimization for better codegen
+codegen-units = 1      # one codegen unit improves optimization (may slow compile)
+panic = "abort"        # smaller binary; no unwinding
+incremental = false    # incremental must be disabled for release builds
+debug-assertions = false
+overflow-checks = false
