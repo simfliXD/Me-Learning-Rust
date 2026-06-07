@@ -1,5 +1,6 @@
 use rand::Rng;
 use std::cmp::Ordering;
+use std::collections::BTreeSet;
 use std::io;
 
 // Secret number range
@@ -13,7 +14,7 @@ fn main() {
     let mut attempts: u32 = 0;
 
     let mut input: String = String::new();
-    let mut guessed_numbers: Vec<u32> = Vec::new();
+    let mut guessed_numbers: BTreeSet<u32> = BTreeSet::new();
 
     println!("Guess the number!");
 
@@ -64,8 +65,7 @@ fn main() {
         println!("\nYour guess is: {guess}");
 
         // Push the guess to the vector and sort it in numeric order
-        guessed_numbers.push(guess);
-        guessed_numbers.sort();
+        guessed_numbers.insert(guess);
 
         // compare the secret number to the guess and print result.
         match guess.cmp(&secret_number) {
