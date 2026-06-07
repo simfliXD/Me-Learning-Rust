@@ -6,6 +6,7 @@ use std::io;
 // Secret number range
 const MIN_NUMBER: u32 = 1;
 const MAX_NUMBER: u32 = 100;
+
 const MAX_ATTEMPTS: u32 = 10;
 
 fn main() {
